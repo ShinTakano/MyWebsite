@@ -1,0 +1,11 @@
+create database ec_sports DEFAULT CHARACTER SET utf8;
+use ec_sports;
+alter table t_buy_detail change but_id buy_id int;//カラム名の修正
+create table t_buy_detail(id serial primary key,buy_id int,item_id int);//購入詳細
+create table t_delivery_method(id serial primary key,name varchar(256),price int);//配送方法
+create table t_buy(id serial primary key, user_id int,total_price int
+,delivery_method int,create_date datetime);//購入
+create table m_item(id serial primary key,name varchar(256) not null,detail text not null
+,price int not null,file_name varchar(256) not null);//アイテム
+create table m_user(id serial primary key,name varchar(256) not null,address varchar(256) not null
+,login_id varchar(256) not null,login_password varchar(256) not null,create_date date not null);//ユーザ名
